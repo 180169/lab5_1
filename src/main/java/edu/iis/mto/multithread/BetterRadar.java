@@ -31,13 +31,12 @@ public class BetterRadar {
     private void launchPatriot() {
         Runnable launchPatriotTask = new Runnable() {
             public void run() {
-                for ( int i = 0; i < 10; i++ ) {
+                for ( int i = 0; i < 1; i++ ) {
                     battery.launchPatriot();
                 }
             }
         };
         executor.execute( launchPatriotTask );
-        //Thread launchingThread = new Thread( launchPatriotTask );
-        //launchingThread.start();
+
     }
 }
