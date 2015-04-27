@@ -5,6 +5,8 @@
  */
 package edu.iis.mto.multithread;
 
+import java.util.concurrent.Executor;
+
 /**
  *
  * @author Godzio
@@ -12,9 +14,14 @@ package edu.iis.mto.multithread;
 public class BetterRadar {
 
     private PatriotBattery battery;
+    private Executor executor;
 
     public BetterRadar( PatriotBattery missle ) {
         this.battery = missle;
+    }
+
+    public void setExecutor( Executor executor ) {
+        this.executor = executor;
     }
 
     public void notice( Scud enemyMissle ) {
@@ -29,8 +36,8 @@ public class BetterRadar {
                 }
             }
         };
-
-        Thread launchingThread = new Thread( launchPatriotTask );
-        launchingThread.start();
+        executor.execute( launchPatriotTask );
+        //Thread launchingThread = new Thread( launchPatriotTask );
+        //launchingThread.start();
     }
 }

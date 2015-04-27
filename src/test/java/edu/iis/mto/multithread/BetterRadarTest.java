@@ -1,17 +1,19 @@
 package edu.iis.mto.multithread;
 
+import org.junit.Test;
+
 import static org.mockito.Mockito.mock;
 import static org.mockito.Mockito.verify;
 
-import org.junit.Test;
+public class BetterRadarTest {
 
-public class RadarTest {
-	@Test
-	public void launchPatriotOnceWhenNoticesAScudMissle() {
-		PatriotBattery batteryMock = mock(PatriotBattery.class);
-		Radar radar = new Radar(batteryMock);
-		radar.notice(new Scud());
-		verify(batteryMock).launchPatriot();
-	}
+    @Test
+    public void launchPatriotOnceWhenNoticesAScudMissle() {
+        PatriotBattery batteryMock = mock( PatriotBattery.class );
+        BetterRadar radar = new BetterRadar( batteryMock );
+        radar.setExecutor( new MyExecutor() );
+        radar.notice( new Scud() );
+        verify( batteryMock ).launchPatriot();
+    }
 
 }
