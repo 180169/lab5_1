@@ -16,11 +16,8 @@ public class BetterRadar {
     private PatriotBattery battery;
     private Executor executor;
 
-    public BetterRadar( PatriotBattery missle ) {
+    public BetterRadar( PatriotBattery missle, Executor executor ) {
         this.battery = missle;
-    }
-
-    public void setExecutor( Executor executor ) {
         this.executor = executor;
     }
 
